@@ -12,7 +12,7 @@ The answer to the request from step 2.a must be the previous saved question for 
 
 3. The repository with the task must contain instructions for assembling a docker image with the service from step 2., configuring it and launching it. And also an example of a request to the POST API of the service.
 
-4. It is advisable if, when performing the task, you use docker-compose, SqlAalchemy, and use type annotations.
+4. It is advisable if, when performing the task, you use docker-compose, SQLAalchemy, and use type annotations.
 
 
 #### REQUIREMENTS
@@ -26,7 +26,7 @@ The answer to the request from step 2.a must be the previous saved question for 
 
 1. Use command
     ```git clone git@github.com:ikhanter/bewise_test_case.git```
-    for cloning the repo to your locak machine.
+    for cloning the repo to your local machine.
 2. Use command
     ```docker-compose build```
     for building image of the project.
