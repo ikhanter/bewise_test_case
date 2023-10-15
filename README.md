@@ -7,10 +7,8 @@
 
 
 2. Implement a simple web service in Python3 (using FastAPI or Flask, for example) that performs the following functions:
-The service must implement a REST API that accepts POST requests with content like {"questions_num": integer} ;
-
-After receiving the request, the service, in turn, requests from the public API (English questions for quizzes) https://jservice.io/api/random?count=1 the number of questions specified in the received request.
-Next, the received answers must be saved in the database from step 1. At least the following information must be saved (you can choose the names of the columns and data types yourself, you can also add your own columns): 1. Question ID, 2. Question text, 3. Answer text, 4. - Date the question was created. If there is the same question in the database, additional requests must be made to the public quiz API until a unique question for the quiz is received.
+The service must implement a REST API that accepts POST requests with content like {"questions_num": integer}.
+After receiving the request, the service, in turn, requests from the public API (English questions for quizzes) https://jservice.io/api/random?count=1 the number of questions specified in the received request. Next, the received answers must be saved in the database from step 1. At least the following information must be saved (you can choose the names of the columns and data types yourself, you can also add your own columns): 1. Question ID, 2. Question text, 3. Answer text, 4. Date the question was created. If there is the same question in the database, additional requests must be made to the public quiz API until a unique question for the quiz is received.
 The answer to the request from step 2.a must be the previous saved question for the quiz. If it is absent, it is an empty object.
 
 3. The repository with the task must contain instructions for assembling a docker image with the service from step 2., configuring it and launching it. And also an example of a request to the POST API of the service.
