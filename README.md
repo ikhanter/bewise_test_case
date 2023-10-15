@@ -43,5 +43,6 @@ The answer to the request from step 2.a must be the previous saved question for 
   For example: ```curl -X POST -H "Content-Type: application/json" -d '{"questions_num": <number>}' http://localhost:5000```
 - Also, you can use ```http://localhost:5000/?questions_num=<number>``` to make the request directly from your web browser.
 - ```<number>``` means how much questions will be added to the DB. Despite of limiting of amount of questions for one request as 100 by ```jservice.io```'s API, nominally the possibility to add more questions for one request is realized.
+- Web-service will return JSON of the last added question __before your request__. If there was no question (DB was empty), it will return an empty JSON-object.
 - DB save its own data on the host machine and keeps it between container running.
 
