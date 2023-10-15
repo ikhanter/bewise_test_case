@@ -43,13 +43,3 @@ The answer to the request from step 2.a must be the previous saved question for 
 - ```<number>``` means how much questions will be added to the DB. Despite of limiting of amount of questions for one request as 100 by ```jservice.io```'s API, the possibility to add more questions for one request is realized.
 - DB save its own data on the host machine and keeps it between container running.
 
-
-#### EXTRA
-
-You can use individual image of the project without dockerized DBMS.
-1. Change Dockerfile:
-   - Add ```ENV DATABASE_URL postgres://username:password@host:port/database_name``` to link web-service with the external DBMS.
-2. Use ```init.sql``` to make a template of the new table in the DB.
-3. Use command ```docker build -t 'test_case' .```
-   to build the image of the web-service.
-4. Use ```docker run -p 5000:5000 -p <port>:<port> test_case```
