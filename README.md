@@ -41,7 +41,8 @@ The answer to the request from step 2.a must be the previous saved question for 
 
 - Send POST-request to ```localhost:5000``` with ```Content-Type: application/json``` and request body ```{"questions_num": <number>}```, where ```<number>``` is ```integer```-type value.
   For example: ```curl -X POST -H "Content-Type: application/json" -d '{"questions_num": <number>}' http://localhost:5000```
-- Also, you can use ```http://localhost:5000/?questions_num=<number>``` to make the request directly from your web browser.
+- Also, you can use ```http://localhost:5000/?questions_num=<number>```. It will be not a POST-request, just a GET with the parameter "questions_num", but the number will be processed the same way, and questions will be added to the database.
+- GET-request without any parameters ```http://localhost:5000``` will return the last added question same as previously, but questions will not be added to the database..
 - ```<number>``` means how much questions will be added to the DB. Despite of limiting of amount of questions for one request as 100 by ```jservice.io```'s API, nominally the possibility to add more questions for one request is realized.
 - Web-service will return JSON of the last added question __before your request__. If there was no question (DB was empty), it will return an empty JSON-object.
 - DB save its own data on the host machine and keeps it between container running.
