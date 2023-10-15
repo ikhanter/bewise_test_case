@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  bewise_test:
+    container_name: bewise_test
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@bewise_database:5432/bewise_test_case
+    command: make start
+    volumes:
+      - ".://usr/src/app"
+    networks:
+      - my_network
+    depends_on:
+      - bewise_database
+
+  bewise_database:
+    image: postgres:14.9-alpine3.18
+    container_name: bewise_database
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=bewise_test_case
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - "pgdata:/var/lib/postgresql/data"
+      - "./init.sql:/docker-entrypoint-initdb.d/init.sql"
+    networks:
+      - my_network
+  
+volumes:
+  pgdata:
+
+networks:
+  my_network:
+    driver: bridge
